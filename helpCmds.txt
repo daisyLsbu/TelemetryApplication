@@ -54,3 +54,6 @@ git --version
 git config --global user.name daisyLsbu
 git config --global user.email mymail.daisy@gmail.com
 git init 
+
+####### Git Hub #########
+menu -> repository -> new -> name -> description
