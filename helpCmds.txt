@@ -22,7 +22,7 @@ source venv/bin/activate
 set Gitignore:
 Newfie -> .gitignore -> add venv, data
 
-##### Git commands ######
+############## Git commands ################
 
 clone:  git clone -b <branch> <remote_repo>
 main branch : 
