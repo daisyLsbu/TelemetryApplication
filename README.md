@@ -24,5 +24,5 @@ use the following endpoints depending on the need:
 /devicedetails : for the server metric
 /containers : for docker metrics
 /combined : for combined metrics
-
+/rtt with host list in request body: to get rtt data in network 
 
