@@ -91,6 +91,8 @@ docker rm <>
 docker build -t my_image .  # this will create an image with name "my_image" and it's tag is latest, if you want to give a different
 #checkin image to github 
 docker commit <container id> username/repository:tag
+sudo docker push my-backup:latest
+
 #pull image from docker hub
 docker pull username/repository:tag
 #run container with volume mounting
