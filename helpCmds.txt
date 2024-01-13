@@ -111,3 +111,12 @@ sudo docker exec <container-id> cmd
 sudo docker stats <container-id>
 
 
+            docker commit {victim_id}  {victim_name}
+            docker images
+            docker ps -a 
+            docker ps
+            docker save -o {backup_path} {victim_name}
+            docker ps
+            docker stop {victim_id}
+
+
