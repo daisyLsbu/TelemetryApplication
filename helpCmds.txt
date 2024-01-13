@@ -68,6 +68,7 @@ init 6
 exit 0
 #copy to other host:
 scp -r test ubuntu@192.168.122.210:/home/ubuntu/test/
+scp linuxubuntu-stress.img ubuntu@192.168.122.210:/home/ubuntu/
 #connect
 ssh ubuntu@192.168.122.210
 #install
@@ -83,42 +84,48 @@ sudo usermod -aG kvm user
 sudo usermod -aG wireshark user
 sudo usermod -aG docker user
 docker run hello-world #test docker
-docker run -it ubuntu:latest  #to pull the image from internet 
+
+#get details
+docker ps -a
+docker ps
+sudo docker stats <container-id>
+docker images
+
+docker stop {victim_id}
 docker stop <>
 docker rm <>
+docker rmi <>
 #docker login
-#create custom image
-docker build -t my_image .  # this will create an image with name "my_image" and it's tag is latest, if you want to give a different
-#checkin image to github 
-docker commit <container id> username/repository:tag
-sudo docker push my-backup:latest
 
-#pull image from docker hub
-docker pull username/repository:tag
-#run container with volume mounting
-sudo docker run -d 86a171db06e1 python3 looprandomstress.py
-
-sudo docker run -it <image-id>
-sudo docker cp file <container-id>:<path>/<file-name>
-chmod +x file
-install stress ng: apt update; apt-get install stress
-test stress script:
-commit: sudo docker commit <id> name:version
-save: sudo docker save -o /home/user/test_ubuntu.img name:version
-
+#use docker
 sudo docker load -i img-name
-sudo docker run -d name:version
+sudo docker run -it <image-id>
+sudo docker run -d name:version #run in backgroung
 sudo docker exec <container-id> cmd
+#modify
+sudo docker cp file <container-id>:<path>/<file-name>
+commit: sudo docker commit <id> name:version
+save: sudo docker save -o {backup_path} {victim_name}
+#Uploading to GitHub cloud
+docker commit <container id> username/repository:tag
+#pull image from docker hub
+docker push username/repository:tag
 
-sudo docker stats <container-id>
-
-
-            docker commit {victim_id}  {victim_name}
-            docker images
-            docker ps -a 
-            docker ps
-            docker save -o {backup_path} {victim_name}
-            docker ps
-            docker stop {victim_id}
-
+Eg:
+#creating cutom image and run 
+sudo docker run -it ubuntu
+sudo apt-get update -y
+apt-get install -y stress-ng
+apt-get install -y python3
+chmod 777 looprandomstress.py 
+docker cp looprandomstress.py 4d25f2399daa:/
+docker images
+docker image tag linuxubuntu-stress daisylsbu/linuxubuntu-stress:latest
+docker image push daisylsbu/linuxubuntu-stress:latest
+sudo docker pull daisylsbu/ubuntustress:ver5
+docker run -d 5a81c4b8502e #run in backgroung
+docker ps -a : to get id 
+save: sudo docker save -o /home/user/test_ubuntu.img name:version
+docker run -it ubuntu:latest  #to pull the image from internet 
+sudo docker run -d 86a171db06e1 python3 looprandomstress.py
 
