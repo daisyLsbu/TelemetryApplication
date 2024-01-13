@@ -68,7 +68,10 @@ init 6
 exit 0
 #copy to other host:
 scp -r test ubuntu@192.168.122.210:/home/ubuntu/test/
+#connect
 ssh ubuntu@192.168.122.210
+#install
+apt-get install stress
 
 ################ Docker cmds #################
 #install docker
@@ -92,5 +95,19 @@ docker commit <container id> username/repository:tag
 docker pull username/repository:tag
 #run container with volume mounting
 sudo docker run -d 86a171db06e1 python3 looprandomstress.py
+
+sudo docker run -it <image-id>
+sudo docker cp file <container-id>:<path>/<file-name>
+chmod +x file
+install stress ng: apt update; apt-get install stress
+test stress script:
+commit: sudo docker commit <id> name:version
+save: sudo docker save -o /home/user/test_ubuntu.img name:version
+
+sudo docker load -i img-name
+sudo docker run -d name:version
+sudo docker exec <container-id> cmd
+
+sudo docker stats <container-id>
 
 
