@@ -1,3 +1,25 @@
+
+### Part 1 — Telemetry Application *(This Repo)*
+
+**Repository:** [`reactiveAndPredictiveMigration`](https://github.com/daisyLsbu/reactiveAndPredictiveMigration)
+
+This is the **data collection layer**. A lightweight Python agent deployed on every host you want to monitor. It exposes an HTTP endpoint that the Monitoring Application polls to collect resource metrics.
+
+**What it collects:**
+- CPU, memory, disk, and network utilisation via `psutil`
+- Per-container resource metrics via the Docker Stats API
+- Round-Trip Time (RTT) to all other hosts in the network (used for migration destination selection)
+
+**Key technologies:**
+- Python
+- `psutil` — system resource footprinting
+- Docker Stats API — container-level resource data
+- HTTP server (lightweight, designed for async polling)
+
+**Deploy this on:** every host node in your network.
+
+---
+
 # TelemetryApplication
 Application to get the telemetry information, developed in python.
 psutil library for system resource information for foot-printing application.
