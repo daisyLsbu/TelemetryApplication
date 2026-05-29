@@ -1,51 +1,83 @@
+# TelemetryApplication
 
-### Part 1 — Telemetry Application *(This Repo)*
-
-**Repository:** [`reactiveAndPredictiveMigration`](https://github.com/daisyLsbu/reactiveAndPredictiveMigration)
-
-This is the **data collection layer**. A lightweight Python agent deployed on every host you want to monitor. It exposes an HTTP endpoint that the Monitoring Application polls to collect resource metrics.
-
-**What it collects:**
-- CPU, memory, disk, and network utilisation via `psutil`
-- Per-container resource metrics via the Docker Stats API
-- Round-Trip Time (RTT) to all other hosts in the network (used for migration destination selection)
-
-**Key technologies:**
-- Python
-- `psutil` — system resource footprinting
-- Docker Stats API — container-level resource data
-- HTTP server (lightweight, designed for async polling)
-
-**Deploy this on:** every host node in your network.
+> A lightweight, self-contained Python telemetry agent for host and container resource monitoring — designed to be deployed independently or used as a reusable building block in larger distributed systems.
 
 ---
 
-# TelemetryApplication
-Application to get the telemetry information, developed in python.
-psutil library for system resource information for foot-printing application.
-dockerstat api for the resources related to all the containers.
-RTT data between the application host and the list of other hosts in the network.
-libraries used: psutil, ping, dockerstat
+## Overview
 
-# Setup:
-1. Install psutil and dockerpy libraries using pip install command.
-2. Run the application with python app.py <port>.
-Example : python app.py 5000
-3. Open a web browser and go to http://localhost:<port>/ to see the UI
+**TelemetryApplication** is a minimal HTTP-based telemetry agent built with Python and Flask. Deployed on any host you want to observe, it exposes a clean REST API that returns real-time resource metrics for the machine itself, any Docker containers running on it, and network round-trip times to other hosts.
 
-### Description
+The agent is intentionally simple and decoupled — it has no dependencies on the systems that consume its data, making it straightforward to integrate as a data collection layer in any monitoring, observability, or orchestration pipeline.
+
+---
+
+## Features
+
+- **Host resource metrics** — CPU, memory, disk, and network utilisation via `psutil`
+- **Container metrics** — per-container resource data via the Docker Stats API
+- **Network RTT measurement** — round-trip time from this host to a configurable list of other hosts
+- **Combined endpoint** — host and container data in a single API response
+- **Configurable port** — pass any port number at startup
+- **Lightweight** — no database, no state, no overhead; just expose and serve
+
+---
+
+## API Endpoints
+
+| Method | Endpoint       | Description                                              |
+|--------|----------------|----------------------------------------------------------|
+| GET    | `/`            | Health check / welcome message                          |
+| GET    | `/devicedetails` | CPU, memory, disk, and network stats for this host     |
+| GET    | `/containers`  | Resource metrics for all running Docker containers       |
+| GET    | `/combined`    | Host stats and container stats in a single response      |
+| POST   | `/rttData`     | RTT from this host to a list of hosts (JSON body)        |
+
+### RTT request body format
+
+```json
+{
+  "hosts": ["192.168.1.10", "192.168.1.11", "192.168.1.12"]
+}
+```
+---
+
+## Getting Started
+**Deploy this on:** every host node in your network.
 This is an example project that showcases how you can use the `psutil`
 library to send metrics from your applications to a monitoring server written
 in any language.
 
-The included `app.py` file shows all the available apis 
-
-### Running the Example
 Use the setup and build script before starting the application or launch script can be used to run all 3 script at once.
+Or follow the steps below:
 
-use the following endpoints depending on the need:
-/devicedetails : for the server metric
-/containers : for docker metrics
-/combined : for combined metrics
-/rtt with host list in request body: to get rtt data in network 
+### Prerequisites
 
+- Python 3.8+
+- Docker Engine (required only if using the `/containers` or `/combined` endpoints)
+
+### Installation
+
+```bash
+git clone https://github.com/daisyLsbu/TelemetryApplication.git
+cd TelemetryApplication
+pip install -r requirement.txt
+```
+
+### Running the agent
+
+```bash
+python app.py <port>
+# Example:
+python app.py 5000
+```
+
+The agent will be available at `http://<host-ip>:<port>`.
+
+## Used In
+
+This agent has been used as **Part 1 — the data collection layer** in the following project in this account:
+
+### [reactiveAndPredictiveMigration](https://github.com/daisyLsbu/reactiveAndPredictiveMigration)
+
+---
