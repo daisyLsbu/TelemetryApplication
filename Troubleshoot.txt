@@ -1,14 +1,50 @@
+How to make the application work: use launch.sh
+it runs the script in this order: setup.sh -> build.sh -> run.sh
+how to use launch.sh: 
+
+how to run application manually: python ./app.py <port>
+python .\app.py 5002 
+
+For missing packages: 
+pip install flask
+pip install psutil
+pip install docker
+pip install pythonping
+
+venv not working:::
+install venv: in windows:
+python -m venv venv
+install venv: in linux: 
+sudo apt-get install python3-venv
+
+python3 missing : use python instead of python3 
+
+how to work in windows system: python, venv, pip , source venv
+install git
+clone repository
+cd <project folder>
+git pull
+install python
+python --version
+python -m venv venv
+.\venv\Scripts\activate
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+python -m pip install --upgrade pip
+pip install -r requirement.txt
+for any missing packages::
+pip install <pakage_name>
+eg. pip install psutil
+
+how to test: open in chrome for default page:  http://127.0.0.1:5002
+http://127.0.0.1:5002/devicedetails : to get this device detail
+
 ###### vscode #######
 Open vscode on Mac:
 Go to finder -> right click on folder -> services -> new Terminal
-
 open from terminal: 
 alias code="open -a /Applications/Visual\ Studio\ Code.app"
 code .
-
 indent on mac : cmd + [ , to remove cmd + ]
-
-
 
 ########## Local setup ###############
 Clone using git cmd:
@@ -18,12 +54,10 @@ set environment:
 python3 -m venv venv
 conda deactivate
 source venv/bin/activate
-
 set Gitignore:
 Newfie -> .gitignore -> add venv, data
 
 ############## Git commands ################
-
 clone:  git clone -b <branch> <remote_repo>
 main branch : 
 git clone https://github.com/daisyLsbu/MigrationOrchesTelemtry.git
