@@ -60,6 +60,7 @@ unset environment: deactivate
 set Gitignore:
 Newfie -> .gitignore -> add venv, data
 
+##Extra commands
 ######## linux commands:
 ip a
 #ping internet
@@ -75,41 +76,6 @@ scp linuxubuntu-stress.img ubuntu@192.168.122.210:/home/ubuntu/
 ssh ubuntu@192.168.122.210
 #install
 apt-get install stress
-
-############## Git commands ################
-clone:  git clone -b <branch> <remote_repo>
-main branch : 
-git clone https://github.com/daisyLsbu/MigrationOrchesTelemtry.git
-other branch:
-git clone -b other https://github.com/daisyLsbu/MigrationOrchesTelemtry.git
-
-operation on remote: git remote options
-info: git remote -v 
-add: git remote add <name> <remote_repo> : git remote add origin https://github.com/daisyLsbu/MigrationOrchesTelemtry.git
-remove: git remote rm <name> : git remote rm origin
-creating branch: git checkout -b <branchname>: git checkout -b monitor
-
-commit:
-git add .
-git commit -m "<comment>" : git commit -m "fist" 
-
-checkin:
-commit -> push
-main: git push -u <remote> <main>: git push -u origin main
-branch: git push -u <remote> <branch>: git push -u origin monitor/telemetry
-
-pull:
-main: git pull
-branch: git pull origin monitor/telemetry/main
-
-setup:
-git --version
-git config --global user.name daisyLsbu
-git config --global user.email mymail.daisy@gmail.com
-git init 
-
-####### Git Hub #########
-menu -> repository -> new -> name -> description
 
 ################ Docker cmds #################
 #install docker
@@ -166,3 +132,37 @@ save: sudo docker save -o /home/user/test_ubuntu.img name:version
 docker run -it ubuntu:latest  #to pull the image from internet 
 sudo docker run -d 86a171db06e1 python3 looprandomstress.py
 
+############## Git commands ################
+clone:  git clone -b <branch> <remote_repo>
+main branch : 
+git clone https://github.com/daisyLsbu/MigrationOrchesTelemtry.git
+other branch:
+git clone -b other https://github.com/daisyLsbu/MigrationOrchesTelemtry.git
+
+operation on remote: git remote options
+info: git remote -v 
+add: git remote add <name> <remote_repo> : git remote add origin https://github.com/daisyLsbu/MigrationOrchesTelemtry.git
+remove: git remote rm <name> : git remote rm origin
+creating branch: git checkout -b <branchname>: git checkout -b monitor
+
+commit:
+git add .
+git commit -m "<comment>" : git commit -m "fist" 
+
+checkin:
+commit -> push
+main: git push -u <remote> <main>: git push -u origin main
+branch: git push -u <remote> <branch>: git push -u origin monitor/telemetry
+
+pull:
+main: git pull
+branch: git pull origin monitor/telemetry/main
+
+setup:
+git --version
+git config --global user.name daisyLsbu
+git config --global user.email mymail.daisy@gmail.com
+git init 
+
+####### Git Hub #########
+menu -> repository -> new -> name -> description
