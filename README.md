@@ -44,11 +44,15 @@ The agent is intentionally simple and decoupled — it has no dependencies on th
 
 ## Getting Started
 **Deploy this on:** every host node in your network.
-This is an example project that showcases how you can use the `psutil`
+This project showcases how to use the `psutil`
 library to send metrics from your applications to a monitoring server written
 in any language.
 
-Use the setup and build script before starting the application or launch script can be used to run all 3 script at once.
+Download this script folder and copy it to the location in linux machine where you want the application to run.
+Execute lauch.sh : ./launch.sh
+or 
+Use the setup and build script before starting the application with run script
+
 Or follow the steps below:
 
 ### Prerequisites
@@ -61,8 +65,12 @@ Or follow the steps below:
 ```bash
 git clone https://github.com/daisyLsbu/TelemetryApplication.git
 cd TelemetryApplication
-pip install -r requirement.txt
-```
+git pull 
+python3 -m venv venv
+conda deactivate
+source venv/bin/activate
+python3 -m pip install --upgrade pip
+pip install -r requirement.txt```
 
 ### Running the agent
 
@@ -73,6 +81,13 @@ python app.py 5000
 ```
 
 The agent will be available at `http://<host-ip>:<port>`.
+#example: http://127.0.0.1:5002
+## Folder structure
+The Script folder has all the script required for running this. 
+app.py and dockerstat.py are main files - use which ever required
+psutil and rtt is supporting code
+requirement.txt - package detail - used in script
+start with trouble shoot file if you want detail on how to debug and use the application
 
 ## Used In
 
