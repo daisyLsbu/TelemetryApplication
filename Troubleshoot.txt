@@ -1,4 +1,4 @@
-How to do setup:: setup.sh : download and execute ./setup.sh
+How to do setup:: setup.sh : download the setup.sh file and execute ./setup.sh
 How to make the application work: use deploy.sh
 it runs the script in this order: build.sh -> run.sh
 how to use deploy.sh: cd TelemetryApplication chmod +x scripts/deploy.sh chmod +x scripts/build.sh source scripts/deploy.sh
@@ -7,19 +7,22 @@ or { source script/build.sh -> ./scripts/run.sh 5002} or (execute command one by
 how to run application manually: python ./app.py <port>
 python .\app.py 5002 
 
+how to test: open in chrome for default page:  http://127.0.0.1:5002
+http://127.0.0.1:5002/devicedetails : to get this device detail
+
 For missing packages: 
 pip install flask
 pip install psutil
 pip install docker
 pip install pythonping
 
+python3 missing : use python instead of python3 
+
 venv not working:::
-install venv: in windows:
-python -m venv venv
 install venv: in linux: 
 sudo apt-get install python3-venv
-
-python3 missing : use python instead of python3 
+install venv: in windows:
+python -m venv venv
 
 how to work in windows system: python, venv, pip , source venv
 install git
@@ -36,9 +39,6 @@ pip install -r requirement.txt
 for any missing packages::
 pip install <pakage_name>
 eg. pip install psutil
-
-how to test: open in chrome for default page:  http://127.0.0.1:5002
-http://127.0.0.1:5002/devicedetails : to get this device detail
 
 ###### vscode #######
 Open vscode on Mac:
@@ -59,6 +59,22 @@ source venv/bin/activate
 unset environment: deactivate
 set Gitignore:
 Newfie -> .gitignore -> add venv, data
+
+######## linux commands:
+ip a
+#ping internet
+ping 8.8.8.8
+#restarting system
+init 6
+#closing terminal
+exit 0
+#copy to other host:
+scp -r test ubuntu@192.168.122.210:/home/ubuntu/test/
+scp linuxubuntu-stress.img ubuntu@192.168.122.210:/home/ubuntu/
+#connect
+ssh ubuntu@192.168.122.210
+#install
+apt-get install stress
 
 ############## Git commands ################
 clone:  git clone -b <branch> <remote_repo>
@@ -94,22 +110,6 @@ git init
 
 ####### Git Hub #########
 menu -> repository -> new -> name -> description
-
-######## linux commands:
-ip a
-#ping internet
-ping 8.8.8.8
-#restarting system
-init 6
-#closing terminal
-exit 0
-#copy to other host:
-scp -r test ubuntu@192.168.122.210:/home/ubuntu/test/
-scp linuxubuntu-stress.img ubuntu@192.168.122.210:/home/ubuntu/
-#connect
-ssh ubuntu@192.168.122.210
-#install
-apt-get install stress
 
 ################ Docker cmds #################
 #install docker
