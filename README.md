@@ -61,18 +61,11 @@ in any language.
 ```
 
 4. Run the application using **one** of the following options:
-   **Option A — Use the launch script:** ./scripts/launch.sh
-   **Option B — Use Build then run:** ./scripts/build.sh ./scripts/run.sh 5002
+   **Option A — Use the launch script:**  source scripts/launch.sh
+   **Option B — Use Build then run:** source scripts/build.sh ./scripts/run.sh 5002
    **Option C — Manual execution:**
    Run the commands from `build.sh` and `run.sh` individually, one at a time.
 
-Download this setup script and copy it to the location in linux machine where you want the application to run.
-Execute setup.sh : ./setup.sh
-cd TelemetryApplication
-chmod +x scripts/launch.sh 
-chmod +x scripts/build.sh 
-./scripts/launch.sh 
-or {./script/build.sh -> ./scripts/run.sh} or (execute command one by one from build.sh and run.sh) 
 ### check troubleshoot file
 
 Or follow the steps below:
