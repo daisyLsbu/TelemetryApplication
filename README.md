@@ -48,6 +48,24 @@ This project showcases how to use the `psutil`
 library to send metrics from your applications to a monitoring server written
 in any language.
 
+1. Download the `setup.sh` script and copy it to the location on your Linux machine where you want the application to run.
+2. Execute the setup script:
+```bash
+   ./setup.sh
+```
+3. Navigate into the application directory:
+```bash
+   cd TelemetryApplication
+   chmod +x scripts/launch.sh
+   chmod +x scripts/build.sh
+```
+
+4. Run the application using **one** of the following options:
+   **Option A — Use the launch script:** ./scripts/launch.sh
+   **Option B — Use Build then run:** ./scripts/build.sh ./scripts/run.sh 5002
+   **Option C — Manual execution:**
+   Run the commands from `build.sh` and `run.sh` individually, one at a time.
+
 Download this setup script and copy it to the location in linux machine where you want the application to run.
 Execute setup.sh : ./setup.sh
 cd TelemetryApplication
