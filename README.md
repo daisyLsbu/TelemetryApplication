@@ -56,12 +56,12 @@ in any language.
 3. Navigate into the application directory:
 ```bash
    cd TelemetryApplication
-   chmod +x scripts/launch.sh
+   chmod +x scripts/deploy.sh
    chmod +x scripts/build.sh
 ```
 
 4. Run the application using **one** of the following options:
-   **Option A — Use the launch script:**  source scripts/launch.sh
+   **Option A — Use the deploy script:**  source scripts/deploy.sh
    **Option B — Use Build then run:** source scripts/build.sh ./scripts/run.sh 5002
    **Option C — Manual execution:**
    Run the commands from `build.sh` and `run.sh` individually, one at a time.
