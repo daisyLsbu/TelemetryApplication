@@ -1,8 +1,8 @@
 How to do setup:: setup.sh : download and execute ./setup.sh
 How to make the application work: use deploy.sh
 it runs the script in this order: build.sh -> run.sh
-how to use deploy.sh: cd TelemetryApplication chmod +x scripts/deploy.sh chmod +x scripts/build.sh ./scripts/deploy.sh
-or {./script/build.sh -> ./scripts/run.sh 5002} or (execute command one by one from build.sh and run.sh)
+how to use deploy.sh: cd TelemetryApplication chmod +x scripts/deploy.sh chmod +x scripts/build.sh source scripts/deploy.sh
+or { source script/build.sh -> ./scripts/run.sh 5002} or (execute command one by one from build.sh and run.sh)
 
 how to run application manually: python ./app.py <port>
 python .\app.py 5002 
@@ -56,6 +56,7 @@ set environment:
 python3 -m venv venv
 conda deactivate
 source venv/bin/activate
+unset environment: deactivate
 set Gitignore:
 Newfie -> .gitignore -> add venv, data
 
