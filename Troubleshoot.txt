@@ -1,7 +1,7 @@
 How to do setup:: setup.sh : download and execute ./setup.sh
-How to make the application work: use launch.sh
+How to make the application work: use deploy.sh
 it runs the script in this order: build.sh -> run.sh
-how to use launch.sh: cd TelemetryApplication chmod +x scripts/launch.sh chmod +x scripts/build.sh ./scripts/launch.sh
+how to use deploy.sh: cd TelemetryApplication chmod +x scripts/deploy.sh chmod +x scripts/build.sh ./scripts/deploy.sh
 or {./script/build.sh -> ./scripts/run.sh 5002} or (execute command one by one from build.sh and run.sh)
 
 how to run application manually: python ./app.py <port>
