@@ -1,2 +1,2 @@
-build.sh
-run.sh
+#!/bin/bash
+./build.sh && ./run.sh
