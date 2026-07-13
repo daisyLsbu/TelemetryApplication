@@ -51,6 +51,7 @@ in any language.
 Download this setup script and copy it to the location in linux machine where you want the application to run.
 Execute setup.sh : ./setup.sh
 cd TelemetryApplication
+chmod +x scripts/launch.sh
 ./scripts/launch.sh or {./script/build.sh -> ./scripts/run.sh}
 
 Or follow the steps below:
