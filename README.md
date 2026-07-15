@@ -61,10 +61,15 @@ in any language.
 ```
 
 4. Run the application using **one** of the following options:
-   **Option A — Use the deploy script:**  source scripts/deploy.sh
-   **Option B — Use Build then run:** source scripts/build.sh ./scripts/run.sh 5002
-   **Option C — Manual execution:**
-   Run the commands from `build.sh` and `run.sh` individually, one at a time.
+    - **Option A — Use the deploy script:**  source scripts/deploy.sh
+    - **Option B — Use Build then run:** source scripts/build.sh ./scripts/run.sh 5002
+    -  **Option C — Manual execution:**
+      Run the commands from `build.sh` and `run.sh` individually, one at a time.
+
+   
+   
+  
+   
 
 ### check troubleshoot file
 
