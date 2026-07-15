@@ -21,8 +21,6 @@ python3 missing : use python instead of python3
 venv not working:::
 install venv: in linux: 
 sudo apt-get install python3-venv
-install venv: in windows:
-python -m venv venv
 
 how to work in windows system: python, venv, pip , source venv
 install git
@@ -31,22 +29,19 @@ cd <project folder>
 git pull
 install python
 python --version
+
+install venv: in windows:
 python -m venv venv
+
+setup env: in windows:
 .\venv\Scripts\activate
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 python -m pip install --upgrade pip
 pip install -r requirement.txt
+
 for any missing packages::
 pip install <pakage_name>
 eg. pip install psutil
-
-###### vscode #######
-Open vscode on Mac:
-Go to finder -> right click on folder -> services -> new Terminal
-open from terminal: 
-alias code="open -a /Applications/Visual\ Studio\ Code.app"
-code .
-indent on mac : cmd + [ , to remove cmd + ]
 
 ########## Local setup ###############
 Clone using git cmd:
@@ -56,113 +51,38 @@ set environment:
 python3 -m venv venv
 conda deactivate
 source venv/bin/activate
-unset environment: deactivate
+install requirement:
+python3 -m pip install --upgrade pip
+pip install -r requirement.txt
+unset environment: 
+deactivate
 set Gitignore:
 Newfie -> .gitignore -> add venv, data
 
-##Extra commands
-######## linux commands:
-ip a
-#ping internet
-ping 8.8.8.8
-#restarting system
-init 6
-#closing terminal
-exit 0
-#copy to other host:
-scp -r test ubuntu@192.168.122.210:/home/ubuntu/test/
-scp linuxubuntu-stress.img ubuntu@192.168.122.210:/home/ubuntu/
-#connect
-ssh ubuntu@192.168.122.210
-#install
-apt-get install stress
+########Setting up docker and containers#######
+in windows:
+Docker on Windows works a bit differently than on Linux/Mac because Docker needs a Linux kernel to run containers. Docker Desktop + WSL2
+powershell
+   wsl --install
+(Run in PowerShell as Administrator, then restart)
+2.	Install Docker Desktop 
+o	Download from docker.com
+o	During install, make sure "Use WSL 2 instead of Hyper-V" is selected
+3.	Verify WSL2 integration 
+o	Open Docker Desktop → Settings → Resources → WSL Integration
+o	Enable integration with your installed Linux distros (e.g., Ubuntu)
+4.	Test it
+bash
+   docker run hello-world
+To open a specific distro:
+powershell
+wsl -d Ubuntu
+cd ~
 
-################ Docker cmds #################
-#install docker
-sudo apt -y install docker.io
-#adding user to the groups 
-sudo usermod -aG ubridge user
-sudo usermod -aG libvirt user 
-sudo usermod -aG kvm user
-sudo usermod -aG wireshark user
-sudo usermod -aG docker user
-docker run hello-world #test docker
+2. Copy from Windows filesystem into WSL home directory
+Windows drives are mounted under /mnt/, e.g. C:\ → /mnt/c/
 
-#get details
-docker ps -a
-docker ps
-sudo docker stats <container-id>
-docker images
 
-docker stop {victim_id}
-docker stop <>
-docker rm <>
-docker rmi <>
-#docker login
 
-#use docker
-sudo docker load -i img-name
-sudo docker run -it <image-id>
-sudo docker run -d name:version #run in backgroung
-sudo docker exec <container-id> cmd
-#modify
-sudo docker cp file <container-id>:<path>/<file-name>
-commit: sudo docker commit <id> name:version
-save: sudo docker save -o {backup_path} {victim_name}
-#Uploading to GitHub cloud
-docker commit <container id> username/repository:tag
-#pull image from docker hub
-docker push username/repository:tag
 
-Eg:
-#creating cutom image and run 
-sudo docker run -it ubuntu
-sudo apt-get update -y
-apt-get install -y stress-ng
-apt-get install -y python3
-chmod 777 looprandomstress.py 
-docker cp looprandomstress.py 4d25f2399daa:/
-docker images
-docker image tag linuxubuntu-stress daisylsbu/linuxubuntu-stress:latest
-docker image push daisylsbu/linuxubuntu-stress:latest
-sudo docker pull daisylsbu/ubuntustress:ver5
-docker run -d 5a81c4b8502e #run in backgroung
-docker ps -a : to get id 
-save: sudo docker save -o /home/user/test_ubuntu.img name:version
-docker run -it ubuntu:latest  #to pull the image from internet 
-sudo docker run -d 86a171db06e1 python3 looprandomstress.py
 
-############## Git commands ################
-clone:  git clone -b <branch> <remote_repo>
-main branch : 
-git clone https://github.com/daisyLsbu/MigrationOrchesTelemtry.git
-other branch:
-git clone -b other https://github.com/daisyLsbu/MigrationOrchesTelemtry.git
-
-operation on remote: git remote options
-info: git remote -v 
-add: git remote add <name> <remote_repo> : git remote add origin https://github.com/daisyLsbu/MigrationOrchesTelemtry.git
-remove: git remote rm <name> : git remote rm origin
-creating branch: git checkout -b <branchname>: git checkout -b monitor
-
-commit:
-git add .
-git commit -m "<comment>" : git commit -m "fist" 
-
-checkin:
-commit -> push
-main: git push -u <remote> <main>: git push -u origin main
-branch: git push -u <remote> <branch>: git push -u origin monitor/telemetry
-
-pull:
-main: git pull
-branch: git pull origin monitor/telemetry/main
-
-setup:
-git --version
-git config --global user.name daisyLsbu
-git config --global user.email mymail.daisy@gmail.com
-git init 
-
-####### Git Hub #########
-menu -> repository -> new -> name -> description
