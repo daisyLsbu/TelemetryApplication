@@ -103,11 +103,11 @@ python app.py 5000
 The agent will be available at `http://<host-ip>:<port>`.
 #example: http://127.0.0.1:5002
 ## Folder structure
-The Script folder has all the script required for running this. 
-app.py and dockerstat.py are main files - use which ever required
-psutil and rtt is supporting code
-requirement.txt - package detail - used in script
-start with trouble shoot file if you want detail on how to debug and use the application
+- The Script folder has all the script required for running this.
+- app.py and dockerstat.py are main files - use which ever required
+- psutil and rtt is supporting code
+- requirement.txt - package detail - used in script
+- start with trouble shoot file if you want detail on how to debug and use the application
 
 ## Used In
 
