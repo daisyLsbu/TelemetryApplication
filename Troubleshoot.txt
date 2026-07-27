@@ -82,7 +82,19 @@ cd ~
 2. Copy from Windows filesystem into WSL home directory
 Windows drives are mounted under /mnt/, e.g. C:\ → /mnt/c/
 
+sample output::
+output:
+{"containers":[],"cpu_free":99.8,"cpu_percent":0.2,"cpu_used":0.2,"host":"172.29.227.23","network_drop":0,"nw_ip":"127.0.0.1","storage_free":1023635374080,"storage_percent":0.2,"storage_used":2473447424,"vm_free":14839869440,"vm_percent":9.0,"vm_used":1498431488}
 
+{"containers":[{"cpu_per":0.0001613265923450138,"cpu_usage":1235586900,"id":"27fb7a5aec09","mem_per":0.9165231005565192,"memory_usage":152883200,"nw":0.09021759033203125,"nw_usage":946}],"cpu_free":99.3,"cpu_percent":0.7,"cpu_used":0.7,"host":"172.29.227.23","network_drop":0,"nw_ip":"127.0.0.1","storage_free":1023635308544,"storage_percent":0.2,"storage_used":2473512960,"vm_free":14457782272,"vm_percent":9.7,"vm_used":1619623936}
+
+{"containers":[
+{"cpu_per":0.00013927064062551733,"cpu_usage":1067598900,"id":"730641cc8f08","mem_per":0.3464003048774499,"memory_usage":57782272,"nw":0.06256103515625,"nw_usage":656},
+{"cpu_per":0.00014581726712063696,"cpu_usage":1117806400,"id":"544c4f075154","mem_per":0.360863321789112,"memory_usage":60194816,"nw":0.06256103515625,"nw_usage":656},
+{"cpu_per":0.00016037007328512047,"cpu_usage":1229391000,"id":"0698930fa10a","mem_per":0.3598320030959205,"memory_usage":60022784,"nw":0.06923675537109375,"nw_usage":726},
+{"cpu_per":9.980216467428849e-05,"cpu_usage":765095700,"id":"d882ecace5ee","mem_per":0.36061776971930454,"memory_usage":60153856,"nw":0.06923675537109375,"nw_usage":726},
+{"cpu_per":0.00010263805141043896,"cpu_usage":786852400,"id":"2d10b0d864ab","mem_per":0.3550682929416549,"memory_usage":59228160,"nw":0.09021759033203125,"nw_usage":946}
+],"cpu_free":99.4,"cpu_percent":0.6,"cpu_used":0.6,"host":"172.29.227.23","network_drop":0,"nw_ip":"127.0.0.1","storage_free":1023635255296,"storage_percent":0.2,"storage_used":2473566208,"vm_free":14330077184,"vm_percent":11.1,"vm_used":1848832000}
 
 
 
